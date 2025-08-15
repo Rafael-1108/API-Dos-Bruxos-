@@ -1,22 +1,23 @@
 {
   "name": "api-dos-bruxos-",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "cls && nodemon server.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Rafael-1108/API-Dos-Bruxos-.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["Harry Potter", "server", "SENAI", "back-end", "js", "javaScript", "bruxos"],
+  "author": "Rafael",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Rafael-1108/API-Dos-Bruxos-/issues"
   },
   "homepage": "https://github.com/Rafael-1108/API-Dos-Bruxos-#readme",
-  "description": "",
+  "description": "Meu primeiro servidor, com tema do Harry Potter",
   "dependencies": {
     "express": "^5.1.0",
     "nodemon": "^3.1.10"
