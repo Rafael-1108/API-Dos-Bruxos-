@@ -2,6 +2,7 @@
   "name": "api-dos-bruxos-",
   "version": "1.0.0",
   "main": "server.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "cls && nodemon server.js"
@@ -10,7 +11,15 @@
     "type": "git",
     "url": "git+https://github.com/Rafael-1108/API-Dos-Bruxos-.git"
   },
-  "keywords": ["Harry Potter", "server", "SENAI", "back-end", "js", "javaScript", "bruxos"],
+  "keywords": [
+    "Harry Potter",
+    "server",
+    "SENAI",
+    "back-end",
+    "js",
+    "javaScript",
+    "bruxos"
+  ],
   "author": "Rafael",
   "license": "MIT",
   "bugs": {
