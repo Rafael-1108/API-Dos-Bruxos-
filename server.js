@@ -1,12 +1,13 @@
 //importando express e todos os bruxos criados em bruxos.js
 import express from "express";
 import bruxos from "./src/data/bruxos.js";
+import harryInicial from "./src/data/harryInicial.js";
 
 const app = express();
 const serverPort = 3000;
 
 app.get("/", (req, res) => {
-    res.send("Vamos de Harry Potter");
+    res.send(harryInicial);
 });
 
 app.get("/bruxos", (req, res) => {
