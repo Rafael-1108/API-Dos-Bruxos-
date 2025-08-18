@@ -51,12 +51,37 @@ app.get('/casas', (req, res) => {
   });
 });
 
-//Rota bruxos
+//Rota bruxos;
 app.get("/bruxos", (req, res) => {
     res.json(bruxos);
 });
 
-app.listen(3000, () => {
-    console.log("🧙‍♂️ API dos Bruxos está no ar na porta 3000!");
-    console.log(`Servidor rodando em http://localhost:3000`);
+app.get("/bruxos/:id", (req, res) => {
+
+//Pegando o id da url;
+let id = req.params.id;
+
+//Transformando id (string) em numero;
+id = parseInt(id)
+
+// Buscar no array/objeto/json
+const bruxo = bruxos.find(b => b.id === id);
+
+// Verificar se existe
+if(bruxo) {
+
+  // Se existir enviar na resposta com o res e o status 200
+res.status(200).json(bruxo);
+} else {
+
+  // Se nao existir, enviar na resposta um feedback e o status 400
+res.status(404).json({
+mensagem: "Bruxo não encontrado!"
+    }) 
+  }
+})
+
+app.listen(serverPort, () => {
+    console.log(`🧙‍♂️ API dos Bruxos está no ar na porta ${serverPort}!`);
+    console.log(`Servidor rodando em http://localhost:${serverPort}`);
 });
