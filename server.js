@@ -3,7 +3,7 @@ import express from "express";
 import bruxos from "./src/data/bruxos.js";
 
 const app = express();
-const serverPort = 3000;
+const serverPort = 5000;
 app.use(express.json());
 
 app.get('/', (req, res) => {
