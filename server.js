@@ -104,6 +104,16 @@ app.get("/bruxos/casa/:casa", (req, res) => {
     }
 });
 
+// Rota para buscar bruxos mortos
+app.get("/bruxos/vivos/nao", (req, res) => {
+const resultado = bruxos.filter((b) => !b.status);
+  if (resultado) {
+res.status(200).json(resultado);
+} else {
+res.status(404).json({ erro: "Nenhum bruxo morto encontrado"})
+}
+})
+// Iniciar o servidor
 
 app.listen(serverPort, () => {
     console.log(`🧙‍♂️ API dos Bruxos está no ar na porta ${serverPort}!`);
