@@ -1,6 +1,8 @@
 //importando express, todos os bruxos criados em bruxos.js e a página inicial
 import express from "express";
-import bruxos from "./src/data/bruxos.js";
+import dados from "./src/data/dados.js";
+
+const { bruxos, varinhas, pocoes, mascotes} = dados;
 
 const app = express();
 const serverPort = 5000;
