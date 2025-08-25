@@ -5,7 +5,7 @@ import dados from "./src/data/dados.js";
 const { bruxos, varinhas, pocoes, animais } = dados;
 
 const app = express();
-const serverPort = 5000;
+const serverPort = 3000;
 app.use(express.json());
 
 app.get('/', (req, res) => {
