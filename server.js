@@ -2,7 +2,7 @@
 import express from "express";
 import dados from "./src/data/dados.js";
 
-const { bruxos, varinhas, pocoes, mascotes} = dados;
+const { bruxos, varinhas, pocoes, animais } = dados;
 
 const app = express();
 const serverPort = 5000;
@@ -112,11 +112,65 @@ const resultado = bruxos.filter((b) => !b.status);
   if (resultado) {
 res.status(200).json(resultado);
 } else {
-res.status(404).json({ erro: "Nenhum bruxo morto encontrado"})
+res.status(404).json({ erro: "Nenhum bruxo morto encontrado"});
 }
-})
-// Iniciar o servidor
+});
 
+app.get("/varinhas", (req,res) => {
+  res.status(200).json(varinhas);
+});
+
+app.get("/animais", (req, res) => {
+  res.status(200).json(animais);
+});
+
+app.get("/pocoes", (req, res) => {
+  res.status(200).json(pocoes);
+});
+
+app.get("/varinhas/id/:id", (req, res) => {
+
+  let id = req.params.id;
+  id = parseInt(id)
+  const varinha = varinhas.find(v => v.id === id);
+    if (varinha) {
+      res.status(200).json(varinha);
+  } else {
+    res.status(404).json({
+      mensagem: `Varinha com o id ${id} não encontrada!`
+    }) 
+  }
+});
+
+app.get("/pocoes/id/:id", (req, res) => {
+
+  let id = req.params.id;
+  id = parseInt(id)
+  const pocao = pocoes.find(p => p.id === id);
+    if (pocao) {
+      res.status(200).json(pocao);
+  } else {
+    res.status(404).json({
+      mensagem: `Poção com o id ${id} não encontrada!`
+    }) 
+  }
+});
+
+app.get("/animais/id/:id", (req, res) => {
+
+  let id = req.params.id;
+  id = parseInt(id)
+  const animal = animais.find(a => a.id === id);
+    if (animal) {
+      res.status(200).json(animal);
+  } else {
+    res.status(404).json({
+      mensagem: `Animal com o id ${id} não encontrado!`
+    }) 
+  }
+});
+
+// Iniciar o servidor
 app.listen(serverPort, () => {
     console.log(`🧙‍♂️ API dos Bruxos está no ar na porta ${serverPort}!`);
     console.log(`Servidor rodando em http://localhost:${serverPort}`);
